@@ -1,0 +1,121 @@
+.header {
+  background: rgb(228, 48, 113);
+  padding: var(--header-padding) 0;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.hamburger-menu{
+  background-color: transparent;
+  display: none;
+}
+
+.header-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.header-item {
+  display: flex;
+  align-items: center;
+  gap: 76px;
+}
+
+.header-nav-link {
+  color: rgb(255, 255, 255);
+  line-height: 109.5%;
+}
+
+.header-login-link {
+  color: rgb(228, 48, 113);
+  line-height: 109.5%;
+  padding: 16px 60px;
+  border-radius: 200px;
+  background: rgb(255, 255, 255);
+  border: 1px solid transparent;
+}
+
+.header-login-link:hover{
+  color: rgb(255, 255, 255);
+  border: 1px solid  rgb(255, 255, 255);
+  background-color: rgb(228, 48, 113);
+  transition:  0.3s;
+}
+
+.search-input-box {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav-input {
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  line-height: 109.5%;
+  border: none;
+  outline: none;
+  padding: 8px 0;
+  font-size: 16px;
+  max-width: 60px;
+}
+
+.header-nav-input:focus {
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.header-nav-input::placeholder {
+  color: rgb(255, 255, 255);
+  line-height: 109.5%;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+
+@media (max-width: 1230px) {
+  .header-nav ul {
+    gap: 26px;
+  }
+}
+
+@media (max-width: 987px) {
+  .header-item{
+    flex-direction: column;
+    text-align: center;
+    width: 70%;
+    position: absolute;
+    background-color: rgb(228, 48, 113);
+    top: 115%;
+    right: 0;
+    padding: 20px;
+    height: 100vh;
+    gap: 200px;
+    transition: 0.5s;
+    transform: translateX(100%);
+  }
+
+  .header-item li{
+    width: 100%;
+    margin-top: 20px;
+  }
+  .search-input-box{
+    display: none;
+  }
+
+  .hamburger-menu{
+    display: inline-block;
+  }
+
+  .header-login-link{
+    width: 100%;
+    display: inline-block;
+  }
+}
+
+.header-nav-hide{
+  transform: translateX(0);
+}

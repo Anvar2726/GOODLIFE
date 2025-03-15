@@ -1,0 +1,313 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goodlyfe Gyms - Swiper-like Slider</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .swiper-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+      width: 400%; /* 4 slides x 100% */
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    .swiper-slide {
+      position: relative;
+      width: 25%; /* 100% / 4 slides */
+      height: 100%;
+      flex-shrink: 0;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slider-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 10;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .home-title {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .home-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #ff6b00;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #e05c00;
+    }
+
+    .swiper-pagination {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: white;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background-color 0.3s ease;
+    }
+
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .swiper-button-prev {
+      left: 20px;
+    }
+
+    .swiper-button-next {
+      right: 20px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      content: '';
+      width: 15px;
+      height: 15px;
+      border-top: 3px solid white;
+      border-right: 3px solid white;
+    }
+
+    .swiper-button-prev::after {
+      transform: rotate(-135deg);
+      margin-left: 5px;
+    }
+
+    .swiper-button-next::after {
+      transform: rotate(45deg);
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="/assets/images/home-1.png" alt="home 1" />
+      </div>
+      <div class="swiper-slide">
+        <img src="/assets/images/home-2.jpg" alt="home 2" />
+      </div>
+      <div class="swiper-slide">
+        <img src="/assets/images/home-3.jpg" alt="home 3" />
+      </div>
+      <div class="swiper-slide">
+        <img src="/assets/images/home-4.jpg" alt="home 4" />
+      </div>
+    </div>
+
+    <div class="slider-content">
+      <h1 class="home-title">Welcome to Goodlyfe Gyms</h1>
+      <a href="#" class="home-btn">See the benefits</a>
+    </div>
+
+    <div class="swiper-pagination">
+      <div class="swiper-pagination-bullet swiper-pagination-bullet-active"></div>
+      <div class="swiper-pagination-bullet"></div>
+      <div class="swiper-pagination-bullet"></div>
+      <div class="swiper-pagination-bullet"></div>
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const swiperWrapper = document.querySelector('.swiper-wrapper');
+      const slides = document.querySelectorAll('.swiper-slide');
+      const bullets = document.querySelectorAll('.swiper-pagination-bullet');
+      const prevButton = document.querySelector('.swiper-button-prev');
+      const nextButton = document.querySelector('.swiper-button-next');
+      
+      let currentIndex = 0;
+      const slideCount = slides.length;
+      let autoplayInterval;
+      let startX, moveX;
+      let isDragging = false;
+      
+      // Function to update slide position
+      function updateSlide() {
+        swiperWrapper.style.transform = `translateX(-${currentIndex * 25}%)`;
+        
+        // Update pagination bullets
+        bullets.forEach((bullet, index) => {
+          if (index === currentIndex) {
+            bullet.classList.add('swiper-pagination-bullet-active');
+          } else {
+            bullet.classList.remove('swiper-pagination-bullet-active');
+          }
+        });
+      }
+      
+      // Function to go to next slide
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateSlide();
+      }
+      
+      // Function to go to previous slide
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateSlide();
+      }
+      
+      // Set up click events for pagination bullets
+      bullets.forEach((bullet, index) => {
+        bullet.addEventListener('click', () => {
+          currentIndex = index;
+          updateSlide();
+          resetAutoplay();
+        });
+      });
+      
+      // Set up click events for navigation buttons
+      prevButton.addEventListener('click', () => {
+        prevSlide();
+        resetAutoplay();
+      });
+      
+      nextButton.addEventListener('click', () => {
+        nextSlide();
+        resetAutoplay();
+      });
+      
+      // Set up autoplay
+      function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 5000);
+      }
+      
+      function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        startAutoplay();
+      }
+      
+      // Touch events for mobile swipe
+      const swiperContainer = document.querySelector('.swiper-container');
+      
+      swiperContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        clearInterval(autoplayInterval);
+      }, { passive: true });
+      
+      swiperContainer.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        moveX = e.touches[0].clientX;
+        const diff = moveX - startX;
+        
+        // Add some resistance to the drag
+        const translateX = -currentIndex * 25 + (diff / swiperContainer.offsetWidth) * 5;
+        swiperWrapper.style.transform = `translateX(${translateX}%)`;
+      }, { passive: true });
+      
+      swiperContainer.addEventListener('touchend', () => {
+        isDragging = false;
+        
+        if (!moveX) return;
+        
+        const diff = moveX - startX;
+        
+        if (diff > 50) {
+          prevSlide();
+        } else if (diff < -50) {
+          nextSlide();
+        } else {
+          updateSlide(); // Reset to current slide position
+        }
+        
+        startX = null;
+        moveX = null;
+        startAutoplay();
+      }, { passive: true });
+      
+      // Initialize slider
+      startAutoplay();
+    });
+  </script>
+</body>
+</html>

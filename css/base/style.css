@@ -2,7 +2,6 @@
 
 .home {
   position: relative;
-  /* height: 100vh; */
   overflow: hidden;
 }
 
@@ -10,7 +9,6 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  /* height: 100%; */
   overflow: hidden;
 }
 
@@ -248,7 +246,7 @@
 }
 
 .faq-title {
-  color: rgb(228, 48, 113);
+  color: #e43071;
   font-size: 40px;
   font-weight: 700;
   line-height: 60px;
@@ -447,4 +445,119 @@ h1 p {
     width: 250px;
     margin-top: 90px;
   }
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  background-image: url("/assets/images/testimonials-bg.jpeg");
+  background-repeat: no-repeat;
+}
+
+.testimonials-title {
+  color: rgb(66, 66, 66);
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 119.2%;
+  margin-bottom: 12px;
+}
+
+.testimonials-content-box {
+  display: flex;
+  gap: 33px;
+}
+
+.testimonials-info {
+  color: rgb(66, 66, 66);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  margin-bottom: 27px;
+}
+
+
+/* testimonials card styles */
+.testimonials-card {
+  border-radius: 10px;
+  box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.18);
+  background: rgb(255, 255, 255);
+  padding-top: 35px;
+  padding-bottom: 38px;
+  max-width: 350px;
+}
+
+
+.testimonials-left-card{
+  margin-left: 97px; /* this card width 350px*/
+  max-width: 350px;
+}
+
+.testimonials-right-card2{
+  max-width: 350px;
+
+}
+
+.testimonials-right-card1{
+max-width: 450px;
+margin-top: 39px;
+margin-bottom: 26px;
+}
+
+
+
+
+.testimonials-card h2 {
+  color: rgb(228, 48, 113);
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 119.2%;
+
+  padding-left: 27px;
+  margin-bottom: 30px;
+}
+
+.testimonials-card-desc {
+  color: rgb(66, 66, 66);
+  font-size: 18px;
+  line-height: 32px;
+  padding-left: 64px;
+  padding-right: 32px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.testimonials-card-desc::before {
+  content: " ";
+  background-image: url("/assets/images/quotes-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 29px;
+  height: 67px;
+  display: inline-block;
+  position: absolute;
+  left: 5%;
+}
+
+.testimonials-card-user-box {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding-left: 64px;
+}
+
+.testimonials-card-user-box img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.testimonials-name {
+  color: rgb(66, 66, 66);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.testimonials-card-user-box span {
+  color: rgb(150, 155, 171);
+  font-size: 14px;
+  font-weight: 400;
 }

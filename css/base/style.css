@@ -474,7 +474,6 @@ h1 p {
   margin-bottom: 27px;
 }
 
-
 /* testimonials card styles */
 .testimonials-card {
   border-radius: 10px;
@@ -485,32 +484,26 @@ h1 p {
   max-width: 350px;
 }
 
-
-.testimonials-left-card{
+.testimonials-left-card {
   margin-left: 97px; /* this card width 350px*/
   max-width: 350px;
 }
 
-.testimonials-right-card2{
+.testimonials-right-card2 {
   max-width: 350px;
-
 }
 
-.testimonials-right-card1{
-max-width: 450px;
-margin-top: 39px;
-margin-bottom: 26px;
+.testimonials-right-card1 {
+  max-width: 450px;
+  margin-top: 39px;
+  margin-bottom: 26px;
 }
-
-
-
 
 .testimonials-card h2 {
   color: rgb(228, 48, 113);
   font-size: 38px;
   font-weight: 600;
   line-height: 119.2%;
-
   padding-left: 27px;
   margin-bottom: 30px;
 }
@@ -560,4 +553,53 @@ margin-bottom: 26px;
   color: rgb(150, 155, 171);
   font-size: 14px;
   font-weight: 400;
+}
+
+@media (max-width: 905px) {
+  .testimonials-card h2 {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+  .testimonials-card-desc {
+    font-size: 14px;
+    line-height: 28px;
+    padding-left: 58px;
+  }
+  .testimonials-title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 800px) {
+  .testimonials-content-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .testimonials-left-card {
+    margin-left: 15%;
+    max-width: 70%;
+  }
+  .testimonials-right-card1,
+  .testimonials-right-card2 {
+    max-width: 70%;
+    margin-left: 15%;
+  }
+
+  .testimonials-card-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 468px) {
+  .testimonials-title{
+    font-size: 28px;
+  }
+.testimonials-card-user-box{
+  flex-direction: column;
+  padding-left: 0px;
+}
 }

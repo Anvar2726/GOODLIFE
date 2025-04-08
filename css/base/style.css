@@ -595,11 +595,119 @@ h1 p {
 }
 
 @media (max-width: 468px) {
-  .testimonials-title{
+  .testimonials-title {
     font-size: 28px;
   }
-.testimonials-card-user-box{
-  flex-direction: column;
-  padding-left: 0px;
+  .testimonials-card-user-box {
+    flex-direction: column;
+    padding-left: 0px;
+  }
 }
+
+/* APP */
+.app {
+  background: rgb(228, 48, 113);
+  margin-top: 80px;
+}
+
+.app-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+}
+
+.app-title {
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 60px;
+  margin-bottom: 4px;
+}
+
+.app-desc {
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  line-height: 37px;
+  margin-bottom: 3px;
+}
+
+.app-sub-text {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 24px;
+  margin-bottom: 9px;
+  display: inline-block;
+}
+
+.app-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgb(0, 0, 0);
+  border-radius: 8px;
+  color: #fff;
+  padding: 2px 10px;
+  max-width: 150px;
+}
+
+.app-sup-text {
+  font-size: 12px;
+}
+
+.app-btn-box {
+  display: flex;
+  gap: 12px;
+}
+
+.app-right {
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+
+.app-img1,
+.app-img2 {
+  border-radius: 30px;
+  width: 232px;
+  height: 438px;
+}
+
+.app-img1{
+  position: relative;
+  top: -40px;
+}
+
+.app-img2 {
+  position: relative;
+  bottom: -35px;
+}
+
+
+@media (max-width: 1006px){
+  .app-container{
+    gap: 40px;
+  }
+  .app-title{
+    font-size: 34px;
+  }
+  .app-right{
+    gap: 0;
+  }
+}
+
+@media (max-width: 878px){
+  .app-container{
+    flex-direction: column;
+    justify-content: center;
+    gap: 70px;
+  }
+  .app-left{
+    text-align: center;
+  }
+
+  .app-btn-box{
+    justify-content: center;
+  }
+
+  
 }

@@ -448,10 +448,7 @@ h1 p {
 }
 
 /* TESTIMONIALS */
-.testimonials {
-  background-image: url("/assets/images/testimonials-bg.jpeg");
-  background-repeat: no-repeat;
-}
+
 
 .testimonials-title {
   color: rgb(66, 66, 66);
@@ -708,6 +705,20 @@ h1 p {
   .app-btn-box{
     justify-content: center;
   }
-
-  
 }
+
+ @media (max-width: 468px){
+  .app-img1, .app-img2{
+    max-width: 200px;
+    height: 400px;
+    object-fit: cover;
+  }
+  .app-img1{
+  top: -45px;
+}
+
+.app-img2 {
+  bottom: -30px;
+}
+
+ }

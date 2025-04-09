@@ -449,7 +449,6 @@ h1 p {
 
 /* TESTIMONIALS */
 
-
 .testimonials-title {
   color: rgb(66, 66, 66);
   font-size: 48px;
@@ -669,7 +668,7 @@ h1 p {
   height: 438px;
 }
 
-.app-img1{
+.app-img1 {
   position: relative;
   top: -40px;
 }
@@ -679,46 +678,58 @@ h1 p {
   bottom: -35px;
 }
 
-
-@media (max-width: 1006px){
-  .app-container{
+@media (max-width: 1006px) {
+  .app-container {
     gap: 40px;
   }
-  .app-title{
+  .app-title {
     font-size: 34px;
   }
-  .app-right{
+  .app-right {
     gap: 0;
   }
 }
 
-@media (max-width: 878px){
-  .app-container{
+@media (max-width: 878px) {
+  .app-container {
     flex-direction: column;
     justify-content: center;
     gap: 70px;
   }
-  .app-left{
+  .app-left {
     text-align: center;
   }
 
-  .app-btn-box{
+  .app-btn-box {
     justify-content: center;
   }
 }
 
- @media (max-width: 468px){
-  .app-img1, .app-img2{
-    max-width: 200px;
-    height: 400px;
-    object-fit: cover;
+@media (max-width: 468px) {
+  .app-img1,
+  .app-img2 {
+    width: 180px;
+    height: 350px;
   }
-  .app-img1{
-  top: -45px;
+  .app-img1 {
+    top: -45px;
+  }
+
+  .app-img2 {
+    bottom: -25px;
+  }
 }
 
-.app-img2 {
-  bottom: -30px;
+@media (max-width: 360px) {
+  .app-img1,
+  .app-img2 {
+    width: 150px;
+    height: 250px;
+  }
+  
+
+  .app-img2 {
+    bottom: -15px;
+  }
 }
 
- }

@@ -786,3 +786,43 @@ h1 p {
     height: 80px;
   }
 }
+
+/* FOOTER */
+
+.footer {
+  background-color: #0b0d17;
+}
+
+.footer-nav {
+  padding: 80px 0;
+}
+
+.footer-nav-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer-nav-item li {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-desc {
+  max-width: 255px;
+  color: rgb(217, 219, 225);
+  font-family: Manrope;
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 30px;
+}
+
+.footer-nav-item h1 {
+  color: rgb(255, 255, 255);
+  font-family: Manrope;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 24px;
+}
